@@ -12,6 +12,7 @@ on:
 env:
   CI: ""
   REACT_APP_MONGO_URL: ${{ secrets.REACT_APP_MONGO_URL }}
+  GENERATE_SOURCEMAP: ${{ secrets.GENERATE_SOURCEMAP }}
 
 jobs:
   build:
