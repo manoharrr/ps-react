@@ -27,7 +27,7 @@ const UpgradeAccount: React.FC = () => {
   return (
     <>
       <div className='container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl'>
-        <h2 className='mx-2 text-2xl fond-bold font-extrabold text-center mb-3'>
+        <h2 className='mx-2 text-2xl fond-bold font-extrabold text-center mb-3 font-alata'>
           {regularType ? "Upgrade Account" : "Downgrade Account"}
         </h2>
         <div className='flex max-w-full w-full flex-col gap-2 lg:text-start lg:flex-row'>
@@ -46,7 +46,7 @@ const UpgradeAccount: React.FC = () => {
               </div>
               <div className='max-w-full w-full mt-2 mx-2 flex justify-center items-center text-l'>
                 <button
-                  className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                  className='w-full font-alata py-2 px-4 bg-blue-600 hover:bg-green-600 rounded-md text-white text-md font-bold disabled:opacity-50'
                   disabled={accBalance < 10000}
                   onClick={() => {
                     dispatch(upgradeDowngradeSBAccount("upgrade"));
@@ -71,7 +71,7 @@ const UpgradeAccount: React.FC = () => {
                     dispatch(upgradeDowngradeSBAccount("downgrade"));
                   }}
                   aria-label='Downgrade Account'
-                  className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                  className='w-full font-alata py-2 px-4 bg-blue-600 hover:bg-red-600 rounded-md text-white text-md font-bold disabled:opacity-50'
                 >
                   Downgrade Account
                 </button>

@@ -38,14 +38,14 @@ const InputModal: React.FC<IProps> = ({
                 </div>
                 <div className='flex items-center justify-center p-2 border-t border-solid border-slate-200 rounded-b'>
                   <button
-                    className='w-full text-green-600 background-transparent rounded font-bold uppercase px-6 py-2 text-m hover:bg-color hover:bg-blue-600 hover:text-white outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                    className='w-full text-green-600 background-transparent rounded font-bold uppercase px-6 py-2 text-m hover:bg-color hover:bg-green-600 hover:text-white outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
                     type='button'
                     onClick={() => getAmount(Number(inp.current?.value))}
                   >
                     Confirm
                   </button>
                   <button
-                    className='w-full text-red-600 background-transparent rounded font-bold uppercase px-6 py-2 text-m hover:bg-color hover:bg-blue-600 hover:text-white outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                    className='w-full text-red-600 background-transparent rounded font-bold uppercase px-6 py-2 text-m hover:bg-color hover:bg-red-600 hover:text-white outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
                     type='button'
                     onClick={() => closeModal()}
                   >

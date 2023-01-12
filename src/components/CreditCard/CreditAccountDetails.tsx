@@ -66,11 +66,11 @@ const CreditAccountDetails: React.FC = () => {
       <div
         className={`container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl md:mr-12 md:ml-0`}
       >
-        <h2 className='mx-2 text-2xl fond-bold font-extrabold mb-3 text-center'>
+        <h2 className='mx-2 text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
           Credit Account Details
         </h2>
         <div className='flex max-w-full w-full flex-col gap-2 lg:text-start lg:flex-row'>
-          <div className='max-w-full w-full mt-2 mx-2'>
+          <div className='max-w-full w-full mt-2 mx-2 ml-8 md:ml-2'>
             <p className='mb-1'>
               Account name: <span className='font-bold'>{name}</span>
             </p>
@@ -83,8 +83,8 @@ const CreditAccountDetails: React.FC = () => {
               )}
             </p>
             <p className='mb-1'>
-              Total Credit Account Balance:{" "}
-              <span className='font-bold'>Rs. {totalBalance}</span>
+              Total Credit Account Balance:
+              <span className='font-bold'> Rs. {totalBalance}</span>
             </p>
             <p className='mb-1'>
               Available Balance:{" "}
@@ -98,22 +98,22 @@ const CreditAccountDetails: React.FC = () => {
               <span className='font-bold'>Rs. {annualCharges}</span>
             </p>
           </div>
-          <div className='max-w-full w-full mt-2 mx-2 text-l'>
-            <div className='max-w-full w-full mt-2 mx-0 md:mb-2'>
+          <div className='max-w-full lg:max-w-1/2 w-full lg:w-1/2 mt-2 mx-2 text-l flex lg:block'>
+            <div className='max-w-full w-full mt-2 mx-0 mr-2 lg:mr-0 lg:mb-2 '>
               <button
-                aria-label='Spend Money'
-                className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                aria-label='Spend Funds'
+                className='w-full font-alata py-2 px-4 bg-blue-600 hover:bg-red-600 rounded-md text-white text-md font-bold disabled:opacity-50'
                 onClick={() => {
                   setModal(true);
                   setAddBal("remove");
                 }}
               >
-                Spend Money
+                Spend Funds
               </button>
             </div>
-            <div className='max-w-full w-full mt-2 mx-0 md:mt-4'>
+            <div className='max-w-full w-full mt-2 mx-0 lg:mt-4'>
               <button
-                className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                className='w-full font-alata py-2 px-4 bg-blue-600 hover:bg-green-600 rounded-md text-white text-md font-bold disabled:opacity-50'
                 disabled={usedBalance === 0}
                 aria-label='Pay Bill'
                 onClick={() => {

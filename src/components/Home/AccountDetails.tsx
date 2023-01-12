@@ -60,7 +60,7 @@ const AccountDetails: React.FC = () => {
       <div
         className={`container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl md:mr-12 md:ml-0`}
       >
-        <h2 className='mx-2 text-2xl fond-bold font-extrabold mb-3 text-center'>
+        <h2 className='mx-2 text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
           Account Details
         </h2>
         <div className='flex max-w-full w-full flex-col gap-2 lg:text-start lg:flex-row'>
@@ -88,26 +88,26 @@ const AccountDetails: React.FC = () => {
           <div className='max-w-full w-full mt-2 mx-2 text-l'>
             <div className='max-w-full w-full mt-2 mx-0 md:mb-2'>
               <button
-                className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                className='w-full py-2 px-4 bg-blue-600 hover:bg-green-600 hover:text-white font-alata  rounded-md text-white text-md font-bold disabled:opacity-50'
                 onClick={() => {
                   setModal(true);
                   setAddBal("add");
                 }}
-                aria-label='Add Funds'
+                aria-label='Deposit Funds'
               >
-                Add Funds
+                Deposit Funds
               </button>
             </div>
             <div className='max-w-full w-full mt-2 mx-0 md:mt-4'>
               <button
-                className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                className='w-full py-2 px-4 bg-blue-600 font-alata hover:bg-red-600 rounded-md text-white text-md font-bold disabled:opacity-50'
                 onClick={() => {
                   setModal(true);
                   setAddBal("remove");
                 }}
-                aria-label='Remove Funds'
+                aria-label='Withdraw Funds'
               >
-                Remove Funds
+                Withdraw Funds
               </button>
             </div>
           </div>

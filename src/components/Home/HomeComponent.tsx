@@ -29,6 +29,7 @@ const HomeComponent: React.FC = () => {
           <button
             className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold'
             onClick={() => dispatch(createSBBalanceAcc())}
+            aria-label='Create new Savings Account'
           >
             Create new Savings Account
           </button>
@@ -38,7 +39,11 @@ const HomeComponent: React.FC = () => {
   if (category.length > 0) {
     return (
       <>
-        <HomeSuccess modal={modal} closeModal={() => dispatch(closeModal())} />
+        <HomeSuccess
+          category={category}
+          modal={modal}
+          closeModal={() => dispatch(closeModal())}
+        />
         <ShowSBTransactions type='savings_account' />
       </>
     );

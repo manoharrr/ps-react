@@ -6,7 +6,7 @@ const SubHeader: React.FC = () => {
   return (
     <>
       {isLoggedIn && (
-        <nav className=' my-2 text-xl bg-gray-200 flex gap-4 font-bold p-2 md:gap-8 md:py-4 rounded secondary md:max-w-[1440px] w-full mx-auto'>
+        <nav className='font-alata my-2 text-xl bg-gray-200 flex gap-4 font-bold p-2 md:gap-8 md:py-4 rounded secondary md:max-w-[1440px] w-full mx-auto'>
           <NavLink to='/' className='mx-2'>
             Home
           </NavLink>

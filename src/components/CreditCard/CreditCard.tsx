@@ -10,7 +10,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import CreditCardSuccess from "./CreditCardSuccess";
 
 const CreditCard: React.FC = () => {
-  const { loading, error, cardType, modal } = useAppSelector(
+  const { loading, error, cardType, modal, usedBalance } = useAppSelector(
     (state) => state.creditCard
   );
   const dispatch = useAppDispatch();
@@ -40,7 +40,9 @@ const CreditCard: React.FC = () => {
     return (
       <>
         <CreditCardSuccess
+          usedBalance={usedBalance}
           modal={modal}
+          cardType={cardType}
           closeModal={() => dispatch(closeModal())}
         />
         <ShowSBTransactions type='credit_card' />

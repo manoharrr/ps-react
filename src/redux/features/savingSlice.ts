@@ -93,6 +93,7 @@ const savingAccSlice = createSlice({
             state.error = action.error.message?.substring(0, 10) || 'Something went wrong'
         })
         builder.addCase(createSBBalanceAcc.pending, (state) => {
+
             state.loading = true
             state.error = ''
         })
