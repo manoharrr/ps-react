@@ -11,7 +11,7 @@ interface InitialState {
 interface Response {
     createUser: string
 }
-const initialState: InitialState = {
+export const initialState: InitialState = {
     loading: false,
     modal: false,
     error: '',

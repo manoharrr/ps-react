@@ -1,13 +1,17 @@
 import React from "react";
-import "react-multi-carousel/lib/styles.css";
+import ErrorBoundary from "../components/ErrorBoundary";
 import HomeComponent from "../components/Home/HomeComponent";
+import ShowSBTransactions from "../components/Transaction/ShowSBTransactions";
 import { TitleChange } from "../utils/titleChange";
 
 const Home: React.FunctionComponent = () => {
   TitleChange("Home");
   return (
     <>
-      <HomeComponent />
+      <ErrorBoundary>
+        <HomeComponent />
+        <ShowSBTransactions type='savings_account' />
+      </ErrorBoundary>
     </>
   );
 };

@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid crimson;
+  outline-offset: 2px;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -17,20 +27,25 @@ code {
     monospace;
 }
 
-#root {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  height: 100vh;
+@media (min-width: 800px) {
+  #root {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    height: 100vh;
+  }
 }
 
 nav a.active {
   color: #f03a3a;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.secondary > a:hover {
-  border-bottom: red;
+.secondary a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
+
 /*Remove arrows in number input field*/
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -105,11 +120,11 @@ input[type="number"] {
   }
 }
 .loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 10px solid #f3f3f3; /* Light grey */
+  width: 60px;
+  height: 60px;
+  border: 15px solid #f3f3f3; /* Light grey */
   /*border-top: 10px solid #383636;  Black */
-  border-top: 10px solid #1127f3;
+  border-top: 15px solid #1127f3;
   border-radius: 50%;
-  animation: spinner 1.5s linear infinite;
+  animation: spinner 1.8s linear infinite;
 }

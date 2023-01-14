@@ -29,7 +29,7 @@ const LoginComponent: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (name.length > 3) {
+    if (name.length > 2) {
       navigate("/", { replace: true });
     }
   }, [navigate, name]);
@@ -37,7 +37,7 @@ const LoginComponent: React.FC = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className='h-96 mx-auto bg-gray-100 flex flex-col justify-start md:h-full md:py-10 md:max-w-xl'>
+    <div className='h-[450px] mx-auto bg-gray-100 flex flex-col justify-start md:h-full md:py-10 md:max-w-xl'>
       <div className='max-w-md w-full mx-auto text-center mt-4 text-2xl font-extrabold px-2 md:pt-16'>
         Login
       </div>

@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
 import {
   resetSuccess,
   upgradeDowngradeCCAccount,
 } from "../../redux/features/creditSlice";
 import bookMyShow from "../../images/bookmyshow-coupon.jpeg";
+import LoadingSpinner from "../UI/LoadingSpinner";
+import Notification from "../UI/Notification";
 
 const CreditUpgradeAccount: React.FC = () => {
-  const { cardType, usedBalance, success } = useAppSelector(
+  const { cardType, usedBalance, success, loading } = useAppSelector(
     (state) => state.creditCard
   );
   const goldCardType: boolean = cardType === "Gold" ? true : false;
   const dispatch = useAppDispatch();
-
+  const [load, setLoad] = useState<boolean>(false);
+  const [coupon, setCoupon] = useState<boolean>(false);
   useEffect(() => {
     let Timer: ReturnType<typeof setTimeout>;
     if (success.length > 0) {
@@ -25,16 +28,30 @@ const CreditUpgradeAccount: React.FC = () => {
     };
   }, [success, dispatch]);
 
+  useEffect(() => {
+    setLoad(loading);
+  }, [loading]);
+  useEffect(() => {
+    let Timer: ReturnType<typeof setTimeout>;
+    if (coupon) {
+      Timer = setTimeout(() => {
+        setCoupon(false);
+      }, 2000);
+    }
+    return () => {
+      clearTimeout(Timer);
+    };
+  }, [coupon]);
   return (
     <>
       <div className='container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl'>
-        <h2 className='mx-2 text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
+        <h2 className='text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
           {goldCardType ? "Upgrade Credit Card" : "Downgrade Credit Card"}
         </h2>
-        <div className='flex max-w-full w-full flex-col gap-2 lg:text-start lg:flex-row '>
+        <div className='flex max-w-full w-full text-[18px] md:text-[20px] flex-col gap-2 lg:text-start lg:flex-row p-2'>
           {goldCardType ? (
             <>
-              <div className='max-w-full w-full mt-2 mx-2 ml-8 md:ml-2'>
+              <div className='max-w-full w-full mt-2 md:ml-2'>
                 <p className='mb-2'>
                   <span className='font-bold'>Conditions to upgrade:</span>
                 </p>
@@ -43,7 +60,7 @@ const CreditUpgradeAccount: React.FC = () => {
                   , please click the button
                 </p>
               </div>
-              <div className='max-w-full w-full mt-2 mx-2 flex justify-center items-center text-l'>
+              <div className='max-w-full w-full mt-2 flex justify-center items-center text-l'>
                 <button
                   aria-label='Upgrade Credit Card'
                   className='w-full py-2 font-alata px-4 bg-blue-600 hover:bg-green-600 rounded-md text-white text-md font-bold disabled:opacity-50'
@@ -58,13 +75,13 @@ const CreditUpgradeAccount: React.FC = () => {
             </>
           ) : (
             <>
-              <div className='max-w-full w-full mt-2 mx-2 ml-8 md:ml-2'>
+              <div className='max-w-full w-full mt-2 md:ml-2'>
                 <p className='mb-2'>
                   <span className='font-bold'>Conditions to downgrade:</span>
                 </p>
                 <p>To downgrade, please click the button</p>
               </div>
-              <div className='max-w-full w-full mt-2 mx-2 flex justify-center items-center text-l'>
+              <div className='max-w-full w-full mt-2 flex justify-center items-center text-l'>
                 <button
                   aria-label='Downgrade Credit Card'
                   disabled={usedBalance > 50000}
@@ -82,11 +99,17 @@ const CreditUpgradeAccount: React.FC = () => {
         {goldCardType ? (
           <></>
         ) : (
-          <div className='mt-8 flex gap-2 max-w-full w-full items-center '>
+          <div className='mt-8 flex gap-2 text-[18px] md:text-[20px] max-w-full w-full items-center '>
             <div className='ml-2'>
               <p>Click the coupon to get the coupon code.</p>
             </div>
-            <div className=''>
+            <div
+              onClick={async () =>
+                await navigator.clipboard
+                  .writeText("ORDER_150")
+                  .then(() => setCoupon(true))
+              }
+            >
               <img
                 src={bookMyShow}
                 alt='bookmyshow coupon'
@@ -96,11 +119,9 @@ const CreditUpgradeAccount: React.FC = () => {
           </div>
         )}
       </div>
-      {success.length > 0 ? (
-        <div className='absolute font-alata text-3xl font-bold bg-green-400 text-black p-6 px-10 rounded animate-heartBeat'>
-          <span>{success}</span>
-        </div>
-      ) : null}
+      {load && <LoadingSpinner />}
+      {success.length > 0 ? <Notification msg={success} /> : null}
+      {coupon ? <Notification /> : null}
     </>
   );
 };

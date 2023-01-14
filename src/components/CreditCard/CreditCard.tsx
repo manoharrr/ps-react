@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
 import {
   closeModal,
   createCCAcc,
   fetchCCBalance,
 } from "../../redux/features/creditSlice";
-import ShowSBTransactions from "../Transaction/ShowSBTransactions";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import CreditCardSuccess from "./CreditCardSuccess";
+import CreditCreateUser from "./CreditCreateUser";
 
 const CreditCard: React.FC = () => {
   const { loading, error, cardType, modal, usedBalance } = useAppSelector(
@@ -16,24 +16,25 @@ const CreditCard: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchCCBalance());
-  }, [dispatch]);
-  if (loading) return <LoadingSpinner />;
+    if (cardType.length === 0) {
+      dispatch(fetchCCBalance());
+    }
+  }, [dispatch, cardType]);
+
+  const createUser = useCallback(
+    () => dispatch(createCCAcc("Gold")),
+    [dispatch]
+  );
+
+  const closeModalCallBack = useCallback(
+    () => dispatch(dispatch(closeModal())),
+    [dispatch]
+  );
+  if (loading && cardType.length === 0) return <LoadingSpinner />;
   if (error === "No Credit")
     return (
       <>
-        <div className='container mt-8 bg-gray-100 p-8 rounded max-w-xl mx-auto'>
-          <h2 className='text-xl font-bold mb-4'>
-            No Credit Card account found. Click below to create one.
-          </h2>
-          <button
-            aria-label='Create new Credit Card account'
-            className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold'
-            onClick={() => dispatch(createCCAcc("Gold"))}
-          >
-            Create new Credit Card account
-          </button>
-        </div>
+        <CreditCreateUser createUser={createUser} />
       </>
     );
   if (cardType.length > 0) {
@@ -43,9 +44,8 @@ const CreditCard: React.FC = () => {
           usedBalance={usedBalance}
           modal={modal}
           cardType={cardType}
-          closeModal={() => dispatch(closeModal())}
+          closeModal={closeModalCallBack}
         />
-        <ShowSBTransactions type='credit_card' />
       </>
     );
   }

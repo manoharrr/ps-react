@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { showTransactions } from '../../graphql/queries';
 import { PURGE } from 'redux-persist'
 
-interface CommonFields {
+export interface CommonFields {
+    _id: string,
     accountType: string,
     amount: number,
     createdAt: string,
@@ -16,7 +17,7 @@ interface InitialState extends Transaction {
     loading: boolean,
     error: string,
 }
-const initialState: InitialState = {
+export const initialState: InitialState = {
     loading: false,
     error: '',
     showTransactions: [],

@@ -19,7 +19,7 @@ const MainHeader: React.FC = () => {
   return (
     <header>
       <section>
-        <div className='container max-w-full mx-auto px-14 py-8 bg-black text-white relative border-b-2'>
+        <div className='container max-w-full mx-auto px-14 py-8 bg-black text-white relative border-b-2 '>
           <nav className='flex items-center justify-between font-bold'>
             <Link to='/' className='text-3xl'>
               PS Bank
@@ -79,7 +79,7 @@ const MainHeader: React.FC = () => {
                 aria-expanded={hamburgerIcon}
                 className={`${
                   hamburgerIcon ? "open" : ""
-                } z40 block hamburger md:hidden focus:outline-none`}
+                } z-50 block hamburger md:hidden focus:outline-none`}
                 onClick={() => setHamburgerIcon((prev) => !prev)}
               >
                 <span className='hamburger-top'></span>

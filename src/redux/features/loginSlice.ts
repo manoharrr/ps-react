@@ -32,7 +32,7 @@ type InitialState = {
     isLoggedIn: boolean
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
     loading: false,
     name: '',
     email: '',

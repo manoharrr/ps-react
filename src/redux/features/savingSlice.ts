@@ -28,10 +28,10 @@ interface InitialState extends CommonFields {
     loading: boolean,
     error: string,
     modal: boolean,
-    success: string
+    success: string,
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
     category: '',
     accBalance: 0,
     minBalance: 0,
@@ -140,7 +140,7 @@ const savingAccSlice = createSlice({
             state.loading = false
             state.error = action.error.message?.substring(0, 10) || 'Something went wrong'
         })
-        builder.addCase(PURGE, () => undefined);
+        builder.addCase(PURGE, () => initialState);
     }
 });
 

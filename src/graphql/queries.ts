@@ -106,6 +106,7 @@ export async function showTransactions() {
     const query = gql`
         query showTransactions{
             showTransactions{
+                _id
                 transactionType
                 accountType
                 amount

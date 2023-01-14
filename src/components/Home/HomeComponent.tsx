@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/app/hooks";
 import {
   closeModal,
   createSBBalanceAcc,
   fetchSBBalance,
 } from "../../redux/features/savingSlice";
-import ShowSBTransactions from "../Transaction/ShowSBTransactions";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import HomeCreateUser from "./HomeCreateUser";
 import HomeSuccess from "./HomeSuccess";
 
 const HomeComponent: React.FC = () => {
@@ -15,36 +15,30 @@ const HomeComponent: React.FC = () => {
   );
   const dispatch = useAppDispatch();
 
+  const createUser = useCallback(
+    () => dispatch(createSBBalanceAcc()),
+    [dispatch]
+  );
+
+  const closeModalCallBack = useCallback(
+    () => dispatch(dispatch(closeModal())),
+    [dispatch]
+  );
+
   useEffect(() => {
-    dispatch(fetchSBBalance());
-  }, [dispatch]);
-  if (loading) return <LoadingSpinner />;
-  if (error === "No savings")
-    return (
-      <>
-        <div className='container mt-8 bg-gray-100 p-8 rounded max-w-xl mx-auto'>
-          <h2 className='text-xl font-bold mb-4'>
-            No savings account found. Click below to create one.
-          </h2>
-          <button
-            className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-md font-bold'
-            onClick={() => dispatch(createSBBalanceAcc())}
-            aria-label='Create new Savings Account'
-          >
-            Create new Savings Account
-          </button>
-        </div>
-      </>
-    );
+    if (category.length === 0) dispatch(fetchSBBalance());
+  }, [dispatch, category]);
+
+  if (loading && category.length === 0) return <LoadingSpinner />;
+  if (error === "No savings") return <HomeCreateUser createUser={createUser} />;
   if (category.length > 0) {
     return (
       <>
         <HomeSuccess
           category={category}
           modal={modal}
-          closeModal={() => dispatch(closeModal())}
+          closeModal={closeModalCallBack}
         />
-        <ShowSBTransactions type='savings_account' />
       </>
     );
   }

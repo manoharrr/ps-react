@@ -1,4 +1,3 @@
-import ErrorBoundary from "../ErrorBoundary";
 import Modal from "../UI/Modal";
 import CreditAccountDetails from "./CreditAccountDetails";
 import CreditOffer from "./CreditOffer";
@@ -19,7 +18,7 @@ const CreditCardSuccess: React.FC<Props> = ({
   cardType,
 }) => {
   return (
-    <ErrorBoundary>
+    <>
       <section className='container max-w-full gap-2 my-2 flex flex-col md:flex-row md:mx-2 items-center justify-center md:items-stretch text-xl md:mb-10'>
         <CreditAccountDetails />
         <CreditUpgradeAccount />
@@ -33,7 +32,7 @@ const CreditCardSuccess: React.FC<Props> = ({
           closeModal={closeModal}
         />
       )}
-    </ErrorBoundary>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
 import {
     persistStore,
     persistReducer,
@@ -20,6 +20,7 @@ const persistConfig = {
     key: 'root',
     version: 1,
     storage,
+    blacklist: ['transaction', 'createUser']
 }
 
 const reducers = combineReducers({
@@ -29,6 +30,7 @@ const reducers = combineReducers({
     creditCard: creditReducer,
     createUser: createUserReducer
 });
+
 
 const persistedReducer = persistReducer(persistConfig, reducers)
 
@@ -42,6 +44,12 @@ const store = configureStore({
         }),
 });
 
+export function setupStore(preloadedState?: PreloadedState<RootState>) {
+    return configureStore({
+        reducer: reducers,
+        preloadedState
+    })
+}
 export default store;
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

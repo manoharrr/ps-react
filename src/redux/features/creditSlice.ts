@@ -33,7 +33,7 @@ interface InitialState extends CommonFields {
     success: string
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
     cardType: '',
     totalBalance: 0,
     usedBalance: 0,
