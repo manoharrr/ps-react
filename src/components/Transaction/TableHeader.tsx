@@ -19,10 +19,10 @@ const TableHeader: React.FC<Props> = ({ data = defaultData }) => {
         <table className='border-collapse table-auto w-full text-l text-center'>
           <thead>
             <tr>
-              <th className='border-b font-bold text-l md:text-xl p-4 pl-8 pt-0 pb-3 text-black'>
+              <th className='border-b font-bold text-l md:text-xl p-4 pl-8 pt-0 pb-3 text-black '>
                 Transaction
               </th>
-              <th className='border-b font-bold text-l md:text-xl p-4 pt-0 pb-3 text-black'>
+              <th className='border-b font-bold text-l md:text-xl p-4 pt-0 pb-3 text-black hidden md:block'>
                 Account
               </th>
               <th className='border-b font-bold text-l md:text-xl p-4 pr-8 pt-0 pb-3 text-black'>

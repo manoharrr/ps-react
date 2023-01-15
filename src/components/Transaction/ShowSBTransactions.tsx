@@ -57,7 +57,7 @@ const ShowSBTransactions: React.FC<Props> = ({ type }) => {
             <td className={`border-b border-slate-100 uppercase p-4 pl-8`}>
               {transaction?.transactionType}
             </td>
-            <td className='border-b border-slate-100 p-4'>
+            <td className='border-b border-slate-100 p-4 hidden md:block'>
               {transaction?.accountType === "savings_account"
                 ? "Savings Account"
                 : "Credit Card"}
