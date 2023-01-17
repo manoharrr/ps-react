@@ -211,7 +211,7 @@ const SignUpComponent: React.FC = () => {
                 aria-label='Submit'
                 className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-lg font-bold'
               >
-                Submit
+                Sign up
               </button>
             </div>
           </form>

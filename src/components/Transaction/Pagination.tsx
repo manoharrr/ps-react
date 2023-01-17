@@ -27,7 +27,7 @@ const Pagination: React.FC<Props> = ({
             ? totalPosts
             : indexOfLastTransaction}
         </span>
-        {totalPosts < 5 ? (
+        {totalPosts < 8 ? (
           <></>
         ) : (
           <>

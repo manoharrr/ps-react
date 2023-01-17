@@ -30,7 +30,9 @@ const AccountDetails: React.FC = () => {
     if (addBal === "add") {
       setValid(true);
     } else {
-      if (accBalance < amount) setValid(false);
+      if (accBalance < val || accBalance - minBalance < val) {
+        setValid(false);
+      }
     }
   };
 

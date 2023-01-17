@@ -12,6 +12,12 @@ import { initialState as loginIS } from "../../redux/features/loginSlice";
 import { initialState as savingIS } from "../../redux/features/savingSlice";
 import { initialState as transactionIS } from "../../redux/features/transactionSlice";
 import { BrowserRouter, MemoryRouter } from "react-router-dom";
+// import { configureStore } from "@reduxjs/toolkit";
+// import loginReducer from "../../redux/features/loginSlice";
+// import savingReducer from "../../redux/features/savingSlice";
+// import transactionReducer from "../../redux/features/transactionSlice";
+// import creditReducer from "../../redux/features/creditSlice";
+// import createUserReducer from "../../redux/features/createUserSlice";
 // import { createMemoryHistory } from "history";
 // import { Router } from "react-router-dom";
 interface Props {
@@ -48,9 +54,9 @@ function render(
     //   initialIndex: initialRouteIndex,
     // });
     return (
-      <Provider store={store}>
-        <BrowserRouter>{children}</BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>{children}</Provider>
+      </BrowserRouter>
     );
   };
   return rtlrender(ui, { wrapper: Wrapper, ...renderOptions });

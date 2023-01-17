@@ -3,3 +3,12 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+import { server } from './mocks/server'
+// Enable API mocking before tests.
+beforeAll(() => server.listen({ onUnhandledRequest: "warn", }))
+
+// Reset any runtime request handlers we may add during the tests.
+afterEach(() => server.resetHandlers())
+
+// Disable API mocking after the tests are done.
+afterAll(() => server.close())

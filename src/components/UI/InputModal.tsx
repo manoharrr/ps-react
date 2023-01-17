@@ -23,17 +23,15 @@ const InputModal: React.FC<IProps> = ({
               <div className='border-0 rounded-lg shadow-lg relative flex flex-col md:min-w-[600px] min-w-full w-96 bg-white outline-none focus:outline-none'>
                 <div className='min-w-full relative p-6 flex-auto'>
                   <div>
-                    <label
-                      htmlFor=''
-                      className='text-xl font-bold text-gray-800 block mb-2'
-                    >
+                    <label className='text-xl font-bold text-gray-800 block mb-2'>
                       {label}
+
+                      <input
+                        type='number'
+                        className='w-full p-2 border border-gray-300 rounded mt-1'
+                        ref={inp}
+                      />
                     </label>
-                    <input
-                      type='number'
-                      className='w-full p-2 border border-gray-300 rounded mt-1'
-                      ref={inp}
-                    />
                   </div>
                 </div>
                 <div className='flex items-center justify-center p-2 border-t border-solid border-slate-200 rounded-b'>

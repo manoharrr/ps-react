@@ -10,10 +10,10 @@ export interface CommonFields {
     transactionType: string
 }
 
-interface Transaction {
+export interface Transaction {
     showTransactions: [CommonFields?]
 }
-interface InitialState extends Transaction {
+export interface InitialState extends Transaction {
     loading: boolean,
     error: string,
 }

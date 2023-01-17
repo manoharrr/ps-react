@@ -1,5 +1,5 @@
 type Props = {
-  data: React.ReactNode;
+  data?: React.ReactNode;
 };
 
 const defaultData = (

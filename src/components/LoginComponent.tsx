@@ -90,7 +90,7 @@ const LoginComponent: React.FC = () => {
               aria-label='submit'
               className='w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white text-lg font-bold'
             >
-              Submit
+              Log in
             </button>
           </div>
         </form>
