@@ -4,6 +4,7 @@ import {
   fetchSBTransactions,
   CommonFields,
 } from "../../redux/features/transactionSlice";
+import Chart from "../UI/Charts";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Pagination from "./Pagination";
 import TableHeader from "./TableHeader";
@@ -77,14 +78,17 @@ const ShowSBTransactions: React.FC<Props> = ({ type }) => {
   return (
     <>
       {typedTransaction?.length > 0 ? (
-        <Pagination
-          transactionPerPage={transactionPerPage}
-          totalPosts={typedTransaction.length}
-          paginate={paginate}
-          currentPage={currentPage}
-          indexOfLastTransaction={indexOfLastTransaction}
-          indexOfFirstPost={indexOfFirstPost}
-        />
+        <>
+          <Chart typedTransaction={typedTransaction} />
+          <Pagination
+            transactionPerPage={transactionPerPage}
+            totalPosts={typedTransaction.length}
+            paginate={paginate}
+            currentPage={currentPage}
+            indexOfLastTransaction={indexOfLastTransaction}
+            indexOfFirstPost={indexOfFirstPost}
+          />
+        </>
       ) : (
         <></>
       )}
