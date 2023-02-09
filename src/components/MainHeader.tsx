@@ -4,6 +4,7 @@ import useWindowSize from "../hooks/useWindowSize";
 import { useAppDispatch, useAppSelector } from "../redux/app/hooks";
 import { persistor } from "../redux/app/store";
 import { logout } from "../redux/features/loginSlice";
+import IconProfile from "./Icons/ProfileIcon";
 
 const MainHeader: React.FC = () => {
   const [hamburgerIcon, setHamburgerIcon] = useState<boolean>(false);
@@ -52,9 +53,9 @@ const MainHeader: React.FC = () => {
                   <div className='group'>
                     <Link
                       to='/profile'
-                      className='group-hover:border-b group-hover:border-cyan-200 capitalize'
+                      className='group-hover:border-b group-hover:border-cyan-200 capitalize flex justify-center items-center'
                     >
-                      Hi {name}
+                      <IconProfile /> <span className='pl-1'>Hi {name}</span>
                     </Link>
                   </div>
                   <div className='group'>
@@ -66,7 +67,7 @@ const MainHeader: React.FC = () => {
                         dispatch(logout());
                       }}
                     >
-                      Log Out
+                      Log out
                     </Link>
                   </div>
                 </>
@@ -138,7 +139,7 @@ const MainHeader: React.FC = () => {
                       dispatch(logout());
                     }}
                   >
-                    Log Out
+                    Log out
                   </Link>
                 </>
               )}

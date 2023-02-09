@@ -69,35 +69,35 @@ const AccountDetails: React.FC = () => {
       <div
         className={`container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl md:mr-12 md:ml-0`}
       >
-        <h2 className='mx-2 text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
+        <h2 className='mx-2 text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata underline underline-offset-4'>
           Account Details
         </h2>
         <div className='flex max-w-full text-[18px] md:text-[20px] w-full flex-col gap-2 lg:text-start lg:flex-row p-2'>
           <div className='max-w-full w-full mt-2 lg:text-left'>
             <p className='mb-1'>
-              Account name: <span className='font-bold'>{name}</span>
+              Name: <span className='font-bold'>{name}</span>
             </p>
             <p className='mb-1'>
-              Account type:{" "}
+              Type:{" "}
               {category === "Regular" ? (
-                <span className='font-bold'>{category}</span>
+                <span className='font-bold text-green-700'>{category}</span>
               ) : (
-                <span className='font-bold text-red-500'>Premium</span>
+                <span className='font-bold text-red-700'>Premium</span>
               )}
             </p>
             <p className='mb-1'>
               Account balance:{" "}
-              <span className='font-bold'>Rs. {accBalance}</span>
+              <span className='font-bold text-green-700'>Rs. {accBalance}</span>
             </p>
             <p className='mb-1'>
               Min account balance:{" "}
-              <span className='font-bold'>Rs. {minBalance}</span>
+              <span className='font-bold text-red-700'>Rs. {minBalance}</span>
             </p>
           </div>
           <div className='max-w-full w-full mt-2 text-l'>
             <div className='max-w-full w-full mt-2 md:mb-2'>
               <button
-                className='w-full py-2 px-4 bg-blue-600 hover:bg-green-600 active:bg-green-700 hover:text-white font-alata  rounded-md text-white text-md font-bold disabled:opacity-50'
+                className='w-full py-2 px-4 bg-green-600 hover:bg-green-700 active:bg-green-800 hover:text-white font-alata  rounded-md text-white text-md font-bold disabled:opacity-50'
                 onClick={() => {
                   setModal(true);
                   setAddBal("add");
@@ -109,7 +109,7 @@ const AccountDetails: React.FC = () => {
             </div>
             <div className='max-w-full w-full mt-2 md:mt-4'>
               <button
-                className='w-full py-2 px-4 bg-blue-600 font-alata hover:bg-red-600 active:bg-red-700 rounded-md text-white text-md font-bold disabled:opacity-50'
+                className='w-full py-2 px-4 bg-red-600 font-alata hover:bg-red-700 active:bg-red-800 rounded-md text-white text-md font-bold disabled:opacity-50'
                 onClick={() => {
                   setModal(true);
                   setAddBal("remove");
@@ -127,7 +127,9 @@ const AccountDetails: React.FC = () => {
           showModal={modal}
           closeModal={closeModal}
           getAmount={getAmount}
-          label={"Amount"}
+          label={`Enter amount ${
+            addBal === "add" ? "for deposit" : "for withdraw"
+          }`}
         />
       )}
       {load && <LoadingSpinner />}

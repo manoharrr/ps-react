@@ -79,7 +79,12 @@ const ShowSBTransactions: React.FC<Props> = ({ type }) => {
     <>
       {typedTransaction?.length > 0 ? (
         <>
-          <Chart typedTransaction={typedTransaction} />
+          <Chart
+            typedTransaction={typedTransaction}
+            accBalance={accBalance}
+            type={type}
+            usedBalance={usedBalance}
+          />
           <Pagination
             transactionPerPage={transactionPerPage}
             totalPosts={typedTransaction.length}

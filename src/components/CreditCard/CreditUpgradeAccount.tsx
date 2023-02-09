@@ -45,7 +45,7 @@ const CreditUpgradeAccount: React.FC = () => {
   return (
     <>
       <div className='container m-2 mr-4 ml-4 bg-gray-100 p-3 max-w-full md:max-w-2xl rounded-xl'>
-        <h2 className='text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
+        <h2 className='text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata underline underline-offset-4'>
           {goldCardType ? "Upgrade Credit Card" : "Downgrade Credit Card"}
         </h2>
         <div className='flex max-w-full w-full text-[18px] md:text-[20px] flex-col gap-2 lg:text-start lg:flex-row p-2'>
@@ -63,7 +63,7 @@ const CreditUpgradeAccount: React.FC = () => {
               <div className='max-w-full w-full mt-2 flex justify-center items-center text-l'>
                 <button
                   aria-label='Upgrade Credit Card'
-                  className='w-full py-2 font-alata px-4 bg-blue-600 hover:bg-green-600 rounded-md text-white text-md font-bold disabled:opacity-50'
+                  className='w-full py-2 font-alata px-4 bg-green-600 hover:bg-green-700 active:bg-green-800 disabled:pointer-events-none rounded-md text-white text-md font-bold disabled:opacity-50'
                   //   disabled={availableBalance < 10000}
                   onClick={() => {
                     dispatch(upgradeDowngradeCCAccount("upgrade"));
@@ -88,7 +88,7 @@ const CreditUpgradeAccount: React.FC = () => {
                   onClick={() => {
                     dispatch(upgradeDowngradeCCAccount("downgrade"));
                   }}
-                  className='w-full font-alata py-2 px-4 bg-blue-600 hover:bg-red-600 rounded-md text-white text-md font-bold disabled:opacity-50'
+                  className='w-full font-alata py-2 px-4 bg-red-600 hover:bg-red-700 active:bg-red-800 disabled:pointer-events-none rounded-md text-white text-md font-bold disabled:opacity-50'
                 >
                   Downgrade Credit Card
                 </button>

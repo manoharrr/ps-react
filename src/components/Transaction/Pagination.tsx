@@ -44,7 +44,7 @@ const Pagination: React.FC<Props> = ({
         <button
           disabled={currentPage === 1}
           onClick={() => paginate(currentPage - 1)}
-          className='inline-flex items-center px-4 py-2 font-medium text-white bg-blue-600 rounded-l hover:bg-gray-900 disabled:opacity-50'
+          className='inline-flex items-center px-4 py-2 font-medium text-white bg-blue-600 rounded-l hover:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none'
         >
           <svg
             aria-hidden='true'
@@ -64,7 +64,7 @@ const Pagination: React.FC<Props> = ({
         <button
           disabled={totalPosts <= indexOfLastTransaction}
           onClick={() => paginate(currentPage + 1)}
-          className='inline-flex items-center px-4 py-2 font-medium text-white bg-blue-600 border-0 border-l border-blue-700 rounded-r hover:bg-gray-900 disabled:opacity-50'
+          className='inline-flex items-center px-4 py-2 font-medium text-white bg-blue-600 border-0 border-l border-blue-700 rounded-r hover:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none'
         >
           Next
           <svg
