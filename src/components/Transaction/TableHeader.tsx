@@ -14,7 +14,7 @@ const defaultData = (
 );
 const TableHeader: React.FC<Props> = ({ data = defaultData }) => {
   return (
-    <div className='container max-w-full md:max-w-[1440px] md:mx-auto max-h-[500px] rounded-xl overflow-auto bg-gray-100 mt-4 mb-8 md:max-h-[650px]'>
+    <div className='container max-w-full md:max-w-[1440px] md:mx-auto max-h-[500px] rounded-xl rounded-t-none border border-t-white overflow-auto bg-gray-100 mb-8 md:max-h-[650px]'>
       <div className='shadow-sm my-4 mx-2'>
         <table className='border-collapse table-auto w-full text-l text-center'>
           <thead>

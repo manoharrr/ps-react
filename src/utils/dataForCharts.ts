@@ -1,3 +1,4 @@
+//Code for bar chart
 export function dataForChart(transactionData: any) {
     let newdata = transactionData.map((transaction: any) => {
         return {

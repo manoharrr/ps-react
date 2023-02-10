@@ -30,7 +30,7 @@ const Chart: React.FC<props> = ({
   const localData1 = dataForChartNew(typedTransaction);
   return (
     <>
-      <h2 className='mx-2 text-xl md:text-2xl fond-bold font-extrabold mb-3 text-center font-alata'>
+      <h2 className='container mx-auto rounded-xl rounded-b-none pt-3 text-xl md:text-2xl fond-bold font-extrabold pb-3 bg-gray-100 text-center font-alata hidden md:block'>
         {type === "savings_account"
           ? "Available Balance: "
           : "Credit Card Usage: "}
@@ -43,7 +43,7 @@ const Chart: React.FC<props> = ({
           {type === "savings_account" ? accBalance : usedBalance}
         </span>
       </h2>
-      <div className='container mx-auto w-full md:flex md:justify-center mb-5'>
+      <div className='container mx-auto hidden w-full md:flex md:justify-center mb-12 rounded-xl rounded-t-none pb-5 bg-gray-100'>
         {/* <BarChart
         width={500}
         height={300}
@@ -64,8 +64,8 @@ const Chart: React.FC<props> = ({
         <Bar dataKey='debit' fill='#dc2626' />
       </BarChart> */}
         <AreaChart
-          width={1000}
-          height={200}
+          width={750}
+          height={250}
           data={localData1}
           syncId='anyId'
           margin={{
